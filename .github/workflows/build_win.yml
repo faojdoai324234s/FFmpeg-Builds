@@ -15,16 +15,10 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - uses: ilammy/msvc-dev-cmd@v1
-    - uses: msys2/setup-msys2@v2
-      with:
-        install: >-
-          docker-buildx-plugin
-        path-type: inherit
-        update: true
 
-    - name: Setup MSYS2
-      shell: msys2 {0}
-      run: docker buildx install
+    - name: Check docker buildx version
+      shell: cmd
+      run: docker buildx version
         
     - name: Build image
       shell: bash
