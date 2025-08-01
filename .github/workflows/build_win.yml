@@ -16,9 +16,13 @@ jobs:
     - uses: actions/checkout@v4
     - uses: ilammy/msvc-dev-cmd@v1
 
-    - name: Check docker buildx version
+    - name: Set Docker env var
       shell: cmd
       run: set DOCKER_CLI_EXPERIMENTAL=enabled
+      
+    - name: Check docker info
+      shell: cmd
+      run: docker info | head -n8
       
     - name: Check docker buildx version
       shell: cmd
