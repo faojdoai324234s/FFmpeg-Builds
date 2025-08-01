@@ -18,7 +18,7 @@ jobs:
 
     - name: Check docker buildx version
       shell: cmd
-      run: export DOCKER_CLI_EXPERIMENTAL=enabled
+      run: set DOCKER_CLI_EXPERIMENTAL=enabled
       
     - name: Check docker buildx version
       shell: cmd
