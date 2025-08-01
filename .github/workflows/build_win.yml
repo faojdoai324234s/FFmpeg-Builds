@@ -1,4 +1,4 @@
-name: Windows Build
+name: Ubuntu Build
 
 on:
   push:
@@ -10,26 +10,12 @@ on:
 
 jobs:
   build:
-    runs-on: windows-2022
+    runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v4
-    - uses: ilammy/msvc-dev-cmd@v1
-
-    - name: Set Docker env var
-      shell: cmd
-      run: set DOCKER_CLI_EXPERIMENTAL=enabled
-      
-    - name: Check docker info
-      shell: cmd
-      run: docker info | head -n8
-      
-    - name: Check docker buildx version
-      shell: cmd
-      run: docker buildx version
         
     - name: Build image
-      shell: bash
       run: |
         ./makeimage.sh win64 nonfree
         
