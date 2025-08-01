@@ -1,0 +1,22 @@
+name: Windows Build
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: windows-2022
+
+    steps:
+    - uses: actions/checkout@v4
+    - uses: ilammy/msvc-dev-cmd@v1
+        
+    - name: Build image
+      shell: bash
+      run: |
+        ./makeimage.sh win64 nonfree [7.1]
